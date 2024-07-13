@@ -1,0 +1,250 @@
+body {
+  background: linear-gradient(to right, #4b79a1, #283e51);
+  color: white;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevenim scroll-ul orizontal */
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.container-fluid {
+  padding: 0 15px; /* Adăugăm padding pentru a evita tăierea conținutului */
+  box-sizing: border-box; /* Asigurăm că padding-ul este inclus în dimensiunea totală */
+}
+
+h1 {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  margin-top: 20px;
+  transform: translateZ(0);
+  perspective: 1000px;
+}
+
+h1::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  z-index: -1;
+  transform: rotateX(0deg) rotateY(0deg);
+  filter: blur(10px);
+}
+
+#weatherForm .input-group {
+  margin-bottom: 20px;
+  width: 100%; /* Asigurăm că grupul de input ocupă întreaga lățime */
+  display: flex;
+  justify-content: center;
+}
+
+#weatherForm input {
+  border-radius: 30px 0 0 30px;
+  border: none;
+  padding: 10px 20px;
+}
+
+#weatherForm button {
+  border-radius: 0 30px 30px 0;
+  border: none;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+}
+
+#burgerMenu button {
+  background-color: #007bff;
+  border-radius: 30px;
+}
+
+#weatherResult {
+  display: none;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 100%; /* Asigurăm că rezultatul nu depășește lățimea ecranului */
+  overflow-y: auto; /* Permitem scroll-ul vertical în interiorul rezultatului */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adăugăm o umbră pentru efect 3D */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adăugăm tranziții pentru hover */
+}
+
+#weatherResult.active {
+  display: block;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adăugăm o umbră pentru efect 3D */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adăugăm tranziții pentru hover */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.weather-details .detail {
+  flex: 1 1 45%; /* Ajustăm dimensiunea detaliilor pentru a se încadra mai bine */
+  margin: 10px;
+}
+
+.weather-details .detail img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.weather-details .detail span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel .day {
+  flex: 0 0 50%; /* Afișăm câte două zile în carusel */
+  max-width: 50%;
+  background: rgba(0, 0, 0, 0.2); /* Adăugăm fundal diferit cardurilor */
+  margin: 0 5px; /* Adăugăm margine între carduri */
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adăugăm o umbră pentru efect 3D */
+  text-align: center;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 2vw;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.carousel-control.prev {
+  left: 10px;
+  border-radius: 25%;
+  width: 5vw;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vw;
+}
+
+.carousel-control.next {
+  right: 10px;
+  border-radius: 25%;
+  width: 5vw;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vw;
+}
+
+#savedCities,
+#burgerMenu {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#savedCities h5,
+#burgerMenu button {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#cityList button {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#cityList button .delete-icon {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+#cityListMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .carousel .day {
+    flex: 0 0 100%; /* Afișăm câte o zi în carusel pentru ecrane medii */
+    max-width: 100%;
+  }
+
+  #cityListMobile {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel .day {
+    flex: 0 0 100%; /* Afișăm câte o zi în carusel pentru ecrane mici */
+    max-width: 100%;
+  }
+}
+
+#savedCities,
+#burgerMenu {
+  height: 85%;
+  margin-top: 14vh;
+  @media (max-width: 480px) {
+    height: auto;
+    margin-top: 3vh;
+  }
+}

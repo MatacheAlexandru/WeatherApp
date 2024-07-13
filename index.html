@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-md-10">
+          <h1 class="text-center my-4">Weather App</h1>
+          <form id="weatherForm" class="mb-4">
+            <div class="input-group">
+              <input
+                type="text"
+                id="cityInput"
+                class="form-control"
+                placeholder="Introduceți numele orașului"
+                required
+              />
+              <button class="btn btn-primary" type="submit">
+                Obține Meteo
+              </button>
+            </div>
+          </form>
+          <div id="burgerMenu" class="d-block d-md-none mb-4">
+            <button class="btn btn-primary w-100" onclick="toggleMenu()">
+              &#9776; Orașele salvate
+            </button>
+            <div id="cityListMobile" class="d-none">
+              <div id="cityList"></div>
+            </div>
+          </div>
+          <div id="weatherResult" class="card">
+            <div class="card-body">
+              <div class="detail" id="weatherDescription">
+                <h5 class="card-title" id="cityName"></h5>
+                <img src="" alt="Weather Icon" /><span></span>
+              </div>
+              <div class="weather-details">
+                <div class="detail" id="temperature"></div>
+                <div class="detail" id="humidity"></div>
+                <div class="detail" id="wind"></div>
+                <div class="detail" id="sunrise"></div>
+                <div class="detail" id="sunset"></div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-container">
+            <div id="forecast" class="carousel"></div>
+            <div class="carousel-control prev" onclick="prevSlide()">
+              &#8249;
+            </div>
+            <div class="carousel-control next" onclick="nextSlide()">
+              &#8250;
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-2">
+          <div id="savedCities" class="d-none d-md-block">
+            <h5>Orașele salvate:</h5>
+            <div id="cityList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
