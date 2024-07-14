@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,16 +21,14 @@
                 type="text"
                 id="cityInput"
                 class="form-control"
-                placeholder="Introduceți numele orașului"
+                placeholder="Enter city name"
                 required
               />
-              <button class="btn btn-primary" type="submit">
-                Obține Meteo
-              </button>
+              <button class="btn btn-primary" type="submit">Get Weather</button>
             </div>
           </form>
           <button id="getLocationButton" class="btn btn-secondary mb-4">
-            Obține Locația Curentă
+            Get Current Location
           </button>
           <div id="weatherResult" class="card">
             <div class="card-body">
@@ -59,7 +57,7 @@
         </div>
         <div class="col-12 col-md-2">
           <div id="savedCities" class="d-none d-md-block">
-            <h5>Orașele salvate:</h5>
+            <h5>Saved Cities:</h5>
             <div id="cityList"></div>
           </div>
         </div>

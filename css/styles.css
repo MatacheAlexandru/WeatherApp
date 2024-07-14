@@ -4,7 +4,7 @@ body {
   font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevenim scroll-ul orizontal */
+  overflow-x: hidden;
 }
 html,
 body {
@@ -13,8 +13,8 @@ body {
 }
 
 .container-fluid {
-  padding: 0 15px; /* Adăugăm padding pentru a evita tăierea conținutului */
-  box-sizing: border-box; /* Asigurăm că padding-ul este inclus în dimensiunea totală */
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -61,7 +61,7 @@ div {
 
 #weatherForm .input-group {
   margin-bottom: 20px;
-  width: 100%; /* Asigurăm că grupul de input ocupă întreaga lățime */
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -105,10 +105,10 @@ div {
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
   border-radius: 8px;
-  max-width: 100%; /* Asigurăm că rezultatul nu depășește lățimea ecranului */
-  overflow-y: auto; /* Permitem scroll-ul vertical în interiorul rezultatului */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adăugăm o umbră pentru efect 3D */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adăugăm tranziții pentru hover */
+  max-width: 100%;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #weatherResult.active {
@@ -120,8 +120,8 @@ div {
   border: none;
   color: white;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adăugăm o umbră pentru efect 3D */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adăugăm tranziții pentru hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-body {
@@ -142,7 +142,7 @@ div {
 }
 
 .weather-details .detail {
-  flex: 1 1 45%; /* Ajustăm dimensiunea detaliilor pentru a se încadra mai bine */
+  flex: 1 1 45%;
   margin: 10px;
 }
 
@@ -169,13 +169,13 @@ div {
 }
 
 .carousel .day {
-  flex: 0 0 50%; /* Afișăm câte două zile în carusel */
+  flex: 0 0 50%;
   max-width: 50%;
-  background: rgba(0, 0, 0, 0.2); /* Adăugăm fundal diferit cardurilor */
-  margin: 0 5px; /* Adăugăm margine între carduri */
+  background: rgba(0, 0, 0, 0.2);
+  margin: 0 5px;
   border-radius: 8px;
   padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adăugăm o umbră pentru efect 3D */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
@@ -244,7 +244,7 @@ div {
 
 @media (max-width: 768px) {
   .carousel .day {
-    flex: 0 0 100%; /* Afișăm câte o zi în carusel pentru ecrane medii */
+    flex: 0 0 100%;
     max-width: 100%;
   }
 
@@ -255,7 +255,7 @@ div {
 
 @media (max-width: 480px) {
   .carousel .day {
-    flex: 0 0 100%; /* Afișăm câte o zi în carusel pentru ecrane mici */
+    flex: 0 0 100%;
     max-width: 100%;
   }
   .card-title {

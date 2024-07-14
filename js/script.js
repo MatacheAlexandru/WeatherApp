@@ -1,4 +1,4 @@
-let currentSlide = 0; // Definim variabila currentSlide la începutul scriptului
+let currentSlide = 0;
 
 $(document).ready(function () {
   loadSavedCities();
@@ -28,9 +28,7 @@ function getWeather(city) {
       updateCarousel(data.forecast.forecastday);
     },
     error: function () {
-      alert(
-        "Nu s-au putut obține datele meteo. Vă rugăm să încercați din nou."
-      );
+      alert("Failed to get weather data. Please try again.");
     },
   });
 }
@@ -47,7 +45,7 @@ function getWeatherByCoordinates(lat, lon) {
       updateCarousel(data.forecast.forecastday);
     },
     error: function () {
-      alert("Nu s-au putut obține datele meteo pentru locația curentă.");
+      alert("Failed to get weather data for the current location.");
     },
   });
 }
@@ -56,11 +54,11 @@ function displayWeather(data) {
   $("#cityName").text(data.location.name);
   $("#weatherDescription img").attr("src", data.current.condition.icon);
   $("#weatherDescription span").text(data.current.condition.text);
-  $("#temperature").text(`Temperatura: ${data.current.temp_c} °C`);
-  $("#humidity").text(`Umiditate: ${data.current.humidity}%`);
-  $("#wind").text(`Viteza vântului: ${data.current.wind_kph} kph`);
-  $("#sunrise").text(`Răsărit: ${data.forecast.forecastday[0].astro.sunrise}`);
-  $("#sunset").text(`Apus: ${data.forecast.forecastday[0].astro.sunset}`);
+  $("#temperature").text(`Temperature: ${data.current.temp_c} °C`);
+  $("#humidity").text(`Humidity: ${data.current.humidity}%`);
+  $("#wind").text(`Wind speed: ${data.current.wind_kph} kph`);
+  $("#sunrise").text(`Sunrise: ${data.forecast.forecastday[0].astro.sunrise}`);
+  $("#sunset").text(`Sunset: ${data.forecast.forecastday[0].astro.sunset}`);
 
   let forecastHTML = "";
   data.forecast.forecastday.forEach((day) => {
@@ -71,8 +69,8 @@ function displayWeather(data) {
         <p>${day.day.condition.text}</p>
         <p>Max: ${day.day.maxtemp_c} °C</p>
         <p>Min: ${day.day.mintemp_c} °C</p>
-        <p>Șanse de precipitații: ${day.day.daily_chance_of_rain}%</p>
-        <p>Nivel UV: ${day.day.uv}</p>
+        <p>Chance of rain: ${day.day.daily_chance_of_rain}%</p>
+        <p>UV index: ${day.day.uv}</p>
       </div>
     `;
   });
@@ -149,10 +147,10 @@ function getCurrentLocationWeather() {
         getWeatherByCoordinates(latitude, longitude);
       },
       () => {
-        alert("Nu s-a putut obține locația curentă.");
+        alert("Could not get current location.");
       }
     );
   } else {
-    alert("Geolocația nu este suportată de acest browser.");
+    alert("Geolocation is not supported by this browser.");
   }
 }
