@@ -25,7 +25,7 @@ function getWeather(city) {
     success: function (data) {
       displayWeather(data);
       saveCity(city);
-      updateCarousel();
+      updateCarousel(data.forecast.forecastday);
     },
     error: function () {
       alert(
@@ -44,7 +44,7 @@ function getWeatherByCoordinates(lat, lon) {
     success: function (data) {
       displayWeather(data);
       saveCity(data.location.name);
-      updateCarousel();
+      updateCarousel(data.forecast.forecastday);
     },
     error: function () {
       alert("Nu s-au putut obține datele meteo pentru locația curentă.");
@@ -96,7 +96,7 @@ function prevSlide() {
   updateCarousel();
 }
 
-function updateCarousel() {
+function updateCarousel(forecastDays) {
   const slideWidth = $(".carousel .day").outerWidth(true);
   const newTransform = -currentSlide * slideWidth;
   $(".carousel").css("transform", `translateX(${newTransform}px)`);
@@ -114,15 +114,8 @@ function saveCity(city) {
 function loadSavedCities() {
   let cities = JSON.parse(localStorage.getItem("cities")) || [];
   $("#cityList").empty();
-  $("#cityListMobile").empty();
   cities.forEach((city) => {
     $("#cityList").append(`
-      <button onclick="getWeather('${city}')">
-        ${city}
-        <span class="delete-icon" onclick="deleteCity(event, '${city}')">&times;</span>
-      </button>
-    `);
-    $("#cityListMobile").append(`
       <button onclick="getWeather('${city}')">
         ${city}
         <span class="delete-icon" onclick="deleteCity(event, '${city}')">&times;</span>
