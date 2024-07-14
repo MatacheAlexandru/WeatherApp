@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <link rel="stylesheet" href="css/styles.css" />
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5DnpDHB4+Vo0MyKNPz8eF"
+      crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="container-fluid">
@@ -29,17 +31,9 @@
               </button>
             </div>
           </form>
-          <button id="getLocationButton" class="btn btn-primary">
+          <button id="getLocationButton" class="btn btn-secondary mb-4">
             Obține Locația Curentă
           </button>
-          <div id="burgerMenu" class="d-block d-md-none mb-4">
-            <button class="btn btn-primary w-100" onclick="toggleMenu()">
-              &#9776; Orașele salvate
-            </button>
-            <div id="cityListMobile" class="d-none">
-              <div id="cityList"></div>
-            </div>
-          </div>
           <div id="weatherResult" class="card">
             <div class="card-body">
               <div class="detail" id="weatherDescription">
@@ -73,6 +67,7 @@
         </div>
       </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js"></script>
   </body>
