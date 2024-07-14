@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5DnpDHB4+Vo0MyKNPz8eF"
+      crossorigin="anonymous"
     />
   </head>
   <body>
@@ -22,25 +24,46 @@
                 id="cityInput"
                 class="form-control"
                 placeholder="Introduceți numele orașului"
+                required
               />
-              <button type="submit" class="btn btn-primary">
+              <button class="btn btn-primary" type="submit">
                 Obține Meteo
               </button>
             </div>
           </form>
-          <button id="currentLocationButton" class="btn btn-primary mb-4">
+          <button id="getLocationButton" class="btn btn-secondary mb-4">
             Obține Locația Curentă
           </button>
-          <div id="weatherResult" class="card active"></div>
+          <div id="weatherResult" class="card">
+            <div class="card-body">
+              <div class="detail" id="weatherDescription">
+                <h5 class="card-title" id="cityName"></h5>
+                <img src="" alt="Weather Icon" /><span></span>
+              </div>
+              <div class="weather-details">
+                <div class="detail" id="temperature"></div>
+                <div class="detail" id="humidity"></div>
+                <div class="detail" id="wind"></div>
+                <div class="detail" id="sunrise"></div>
+                <div class="detail" id="sunset"></div>
+              </div>
+            </div>
+          </div>
           <div class="carousel-container">
-            <button id="prevSlide" class="btn btn-secondary">&lt;</button>
-            <div id="carousel"></div>
-            <button id="nextSlide" class="btn btn-secondary">&gt;</button>
+            <div id="forecast" class="carousel"></div>
+            <div class="carousel-control prev" onclick="prevSlide()">
+              &#8249;
+            </div>
+            <div class="carousel-control next" onclick="nextSlide()">
+              &#8250;
+            </div>
           </div>
         </div>
         <div class="col-12 col-md-2">
-          <h5 class="mt-4">Orașele salvate:</h5>
-          <div id="savedCities"></div>
+          <div id="savedCities" class="d-none d-md-block">
+            <h5>Orașele salvate:</h5>
+            <div id="cityList"></div>
+          </div>
         </div>
       </div>
     </div>
