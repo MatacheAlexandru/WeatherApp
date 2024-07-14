@@ -1,4 +1,5 @@
 let currentSlide = 0;
+let totalSlides = 0;
 
 $(document).ready(function () {
   loadSavedCities();
@@ -18,7 +19,7 @@ $(document).ready(function () {
 
 function getWeather(city) {
   const apiKey = "b429d88ed86c4d4996a202219241307";
-  const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`;
+  const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=6`;
   $.ajax({
     url: apiUrl,
     method: "GET",
@@ -35,7 +36,7 @@ function getWeather(city) {
 
 function getWeatherByCoordinates(lat, lon) {
   const apiKey = "b429d88ed86c4d4996a202219241307";
-  const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=3`;
+  const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=6`;
   $.ajax({
     url: apiUrl,
     method: "GET",
@@ -76,25 +77,41 @@ function displayWeather(data) {
   });
   $("#forecast").html(forecastHTML);
 
+  totalSlides = data.forecast.forecastday.length;
   $("#weatherResult").addClass("active");
 }
 
 function nextSlide() {
-  const totalSlides = $(".carousel .day").length;
-  if (currentSlide < totalSlides - 2) {
-    currentSlide += 2;
+  if ($(window).width() < 768) {
+    // Pentru ecrane mici (mobile), trecem câte o zi
+    if (currentSlide < totalSlides - 1) {
+      currentSlide += 1;
+    }
+  } else {
+    // Pentru ecrane mari, trecem câte două zile
+    if (currentSlide < totalSlides - 2) {
+      currentSlide += 2;
+    }
   }
   updateCarousel();
 }
 
 function prevSlide() {
-  if (currentSlide > 0) {
-    currentSlide -= 2;
+  if ($(window).width() < 768) {
+    // Pentru ecrane mici (mobile), trecem câte o zi
+    if (currentSlide > 0) {
+      currentSlide -= 1;
+    }
+  } else {
+    // Pentru ecrane mari, trecem câte două zile
+    if (currentSlide > 0) {
+      currentSlide -= 2;
+    }
   }
   updateCarousel();
 }
 
-function updateCarousel(forecastDays) {
+function updateCarousel() {
   const slideWidth = $(".carousel .day").outerWidth(true);
   const newTransform = -currentSlide * slideWidth;
   $(".carousel").css("transform", `translateX(${newTransform}px)`);
