@@ -41,6 +41,12 @@ h1::before {
   transform: rotateX(0deg) rotateY(0deg);
   filter: blur(10px);
 }
+p {
+  color: #fff;
+}
+h5 {
+  color: #fff;
+}
 
 #weatherForm .input-group {
   margin-bottom: 20px;
@@ -53,11 +59,25 @@ h1::before {
   border-radius: 30px 0 0 30px;
   border: none;
   padding: 10px 20px;
+  height: 5vh;
 }
 
 #weatherForm button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 0 30px 30px 0;
   border: none;
+  margin-left: 0.5vw;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  height: 5vh;
+}
+
+#getLocationButton {
+  border: none;
+  margin-left: 0.5vw;
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
@@ -191,6 +211,7 @@ h1::before {
 #burgerMenu button {
   text-align: center;
   margin-bottom: 20px;
+  color: #d9d6d6;
 }
 
 #cityList button {
