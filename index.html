@@ -6,7 +6,7 @@
     <title>Weather App</title>
     <link
       rel="stylesheet"
-      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
@@ -29,6 +29,9 @@
               </button>
             </div>
           </form>
+          <button id="getLocationButton" class="btn btn-primary">
+            Obține Locația Curentă
+          </button>
           <div id="burgerMenu" class="d-block d-md-none mb-4">
             <button class="btn btn-primary w-100" onclick="toggleMenu()">
               &#9776; Orașele salvate
@@ -70,7 +73,6 @@
         </div>
       </div>
     </div>
-
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>
   </body>

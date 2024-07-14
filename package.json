@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "create-branch": "git checkout -b new-feature-branch && git push -u origin new-feature-branch"
+    "create-branch": "git checkout -b new-feature-branch && git push -u origin new-feature-branch",
+    "build": "echo 'Building the project...'",
+    "test": "echo 'Running tests...'"
   },
   "keywords": [],
   "author": "",

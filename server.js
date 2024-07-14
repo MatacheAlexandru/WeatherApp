@@ -10,16 +10,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(morgan("dev"));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname)));
 
+// Servește fișierele din node_modules
 app.use("/node_modules", express.static(path.join(__dirname, "node_modules")));
 
+// Ruta pentru pagina principală
 app.get("/", (req, res) => {
-  const filePath = path.join(__dirname, "public/index.html");
+  const filePath = path.join(__dirname, "index.html");
   console.log("Serving file:", filePath);
   res.sendFile(filePath);
 });
 
+// Ruta pentru obținerea datelor meteo
 app.get("/weather", async (req, res) => {
   try {
     const { city, lat, lon } = req.query;
@@ -37,6 +40,7 @@ app.get("/weather", async (req, res) => {
     const response = await axios.get(apiUrl);
     res.json(response.data);
   } catch (error) {
+    console.error("Error fetching weather data:", error);
     res.status(500).json({ error: "Nu s-au putut obține datele meteo" });
   }
 });
