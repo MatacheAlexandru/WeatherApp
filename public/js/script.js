@@ -1,3 +1,5 @@
+let currentSlide = 0; // Adaugă această linie la începutul fișierului script.js
+
 $(document).ready(function () {
   loadSavedCities();
 
