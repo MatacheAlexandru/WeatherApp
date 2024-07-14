@@ -1,5 +1,3 @@
-let currentSlide = 0; // Adaugă această linie la începutul fișierului script.js
-
 $(document).ready(function () {
   loadSavedCities();
 
@@ -9,12 +7,18 @@ $(document).ready(function () {
     getWeather(city);
   });
 
+  $("#getLocationButton").on("click", function () {
+    getCurrentLocationWeather();
+  });
+
   getCurrentLocationWeather();
 });
 
 function getWeather(city) {
+  const apiKey = "b429d88ed86c4d4996a202219241307";
+  const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`;
   $.ajax({
-    url: `/weather?city=${city}`,
+    url: apiUrl,
     method: "GET",
     success: function (data) {
       displayWeather(data);
@@ -30,8 +34,10 @@ function getWeather(city) {
 }
 
 function getWeatherByCoordinates(lat, lon) {
+  const apiKey = "b429d88ed86c4d4996a202219241307";
+  const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=3`;
   $.ajax({
-    url: `/weather?lat=${lat}&lon=${lon}`,
+    url: apiUrl,
     method: "GET",
     success: function (data) {
       displayWeather(data);
