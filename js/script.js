@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  let currentSlide = 0;
   loadSavedCities();
 
   $("#weatherForm").on("submit", function (event) {
