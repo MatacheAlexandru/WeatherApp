@@ -1,11 +1,12 @@
 {
-  "name": "new-folder",
+  "name": "weather-app",
   "version": "0.2.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "create-branch": "git checkout -b new-feature-branch && git push -u origin new-feature-branch"
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,3 @@
-let currentSlide = 0;
-
 $(document).ready(function () {
   loadSavedCities();
 
