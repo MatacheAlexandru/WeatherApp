@@ -1,5 +1,6 @@
+let currentSlide = 0; // Definim variabila currentSlide la începutul scriptului
+
 $(document).ready(function () {
-  let currentSlide = 0;
   loadSavedCities();
 
   $("#weatherForm").on("submit", function (event) {
@@ -17,7 +18,7 @@ $(document).ready(function () {
 
 function getWeather(city) {
   const apiKey = "b429d88ed86c4d4996a202219241307";
-  const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`; // Utilizăm HTTPS
+  const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`;
   $.ajax({
     url: apiUrl,
     method: "GET",
@@ -36,7 +37,7 @@ function getWeather(city) {
 
 function getWeatherByCoordinates(lat, lon) {
   const apiKey = "b429d88ed86c4d4996a202219241307";
-  const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=3`; // Utilizăm HTTPS
+  const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=3`;
   $.ajax({
     url: apiUrl,
     method: "GET",
